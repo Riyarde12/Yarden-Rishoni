@@ -3,7 +3,6 @@ const GHOST = '👻';
 var gGhosts;
 var gIntervalGhosts;
 const GHOST_WEAK = '🥶'
-// console.log('ghost')
 
 function createGhost(board) {
     var ghost = {
@@ -59,13 +58,11 @@ function moveGhost(ghost) {
         }
         return
     }
-
     // moving from corrent position:
     // update the model
     gBoard[ghost.location.i][ghost.location.j] = ghost.currCellContent
     // update the DOM
     renderCell(ghost.location, ghost.currCellContent)
-
     // Move the ghost to new location
     // update the model
     ghost.location = {
@@ -75,13 +72,12 @@ function moveGhost(ghost) {
     ghost.currCellContent = nextCell;
     gBoard[ghost.location.i][ghost.location.j] = GHOST;
     // update the DOM
-    renderCell(ghost.location, getGhostHTML(ghost));
+    renderCell(ghost.location, getGhostHTML());
 }
 
-function getGhostHTML(ghost) {
+function getGhostHTML() {
     var color = (gPacman.isSuper) ? GHOST_WEAK : GHOST;
-    return `<span class="ghost-color">${color}</span>`;
-    // return `<span class="ghost">${GHOST}</span>`
+    return `<span class="ghost">${color}</span>`;
 }
 
 function getMoveDiff() {
@@ -109,7 +105,7 @@ function killGhost(nextLocation) {
 
 function checkCellContent(ghost) {
     if (ghost.currCellContent === FOOD) {
-        updateScore(1);
+        gGame.foodOnBoard--;
         ghost.currCellContent === EMPTY;
     } else if (ghost.currCellContent === CHEERY) {
         updateScore(10);

@@ -1,10 +1,9 @@
 'use strict'
-const WALL = '#';
-const FOOD = '.';
+const WALL = '🧱';
+const FOOD = '🧆';
 const EMPTY = ' ';
 const SUPER_FOOD = '🤯';
 const CHEERY = '🤩'
-
 
 var gBoard;
 var gGame = {
@@ -42,6 +41,7 @@ function buildBoard() {
             } else {
                 board[i][j] = FOOD;
                 gGame.foodOnBoard++
+                console.log('gGame.foodOnBoard', gGame.foodOnBoard);
             }
         };
     };
@@ -63,19 +63,21 @@ function gameOver() {
     gBoard[gPacman.location.i][gPacman.location.j] = EMPTY;
     // update the DOM
     renderCell(gPacman.location, EMPTY);
-    document.querySelector('.renew').style.display = 'block';
+    checkWinLose(false);
 }
 
 function checkVictory() {
     console.log(gGame.foodOnBoard);
     if (gGame.foodOnBoard === 0) {
-        document.querySelector('.victory').style.display = 'block';
-        gameOver()
+        checkWinLose(true);
+        clearInterval(gIntervalGhosts);
+        clearInterval(gCerryIntervalId);
+        gGame.isOn = false;
     };
 };
 
 function resetGame() {
-    gGame = getDefaultGameObj()
+    gGame = getDefaultGameObj();
     init()
     // gBoard = buildBoard();
     // createPacman(gBoard);
@@ -110,6 +112,7 @@ function getEmptyCells(board) {
     }
     return emptyLocations
 }
+
 
 
 // console.log(foodOnBoard());

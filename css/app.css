@@ -1,6 +1,55 @@
 body {
-  background-color: black;
   color: white;
+  background-color: black;
+}
+
+.board-container {
+  margin-left: 480px;
+  position: absolute;
+  box-shadow: 5px 5px 15px 5px #ff8080, -9px 5px 15px 5px #ffe488,
+    -7px -5px 15px 5px #8cff85, 12px -5px 15px 5px #80c7ff,
+    12px 10px 15px 7px #e488ff, -10px 10px 15px 7px #ff616b,
+    -10px -7px 27px 1px #8e5cff, 6px -8px 18px 16px rgba(0, 0, 0, 0.07);
+}
+
+.renew {
+  margin: auto;
+  background-color: rgb(190, 15, 15);
+  color: turquoise;
+  border-radius: 20%;
+}
+
+.msg {
+  text-align: center;
+  color: #ffffff;
+  background: #333333;
+  text-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
+    #ff2d95 0px 0px 20px, #ff2d95 0px 0px 30px, #ff2d95 0px 0px 40px,
+    #ff2d95 0px 0px 50px, #ff2d95 0px 0px 75px;
+}
+
+.modal {
+  border: 10px dotted #1c6ea4;
+  border-radius: 21px 29px 30px 23px;
+  display: none;
+  height: 100px;
+  margin-left: 400px;
+  width: 600px;
+  box-shadow: -12px 17px 12px 13px rgba(161, 19, 19, 0.85);
+}
+
+h2 {
+  text-align: center;
+  font-family: Georgia, serif;
+  font-size: 30px;
+  letter-spacing: -3px;
+  word-spacing: 5.6px;
+  color: #ec0000bb;
+  font-weight: normal;
+  text-decoration: none;
+  font-style: normal;
+  font-variant: small-caps;
+  text-transform: capitalize;
 }
 
 .cell {
@@ -9,12 +58,6 @@ body {
   text-align: center;
   font-size: 1.5em;
 }
-
-/* .formLine {
-  margin:10px;
-  padding:10px;
-  background-color: cornflowerblue;
-} */
 
 .renew {
   display: none;

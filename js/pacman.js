@@ -1,5 +1,10 @@
 'use strict'
-const PACMAN = '😷';
+var PACMAN = '😷';
+const PACMAN_RIGHT = '<img src="img/pacman-right.png">'
+const PACMAN_LEFT = '<img src="img/pacman-left.png">'
+const PACMAN_DOWN = '<img src="img/pacman-down.png">'
+const PACMAN_UP = '<img src="img/pacman-up.png">'
+
 var gTimeOut;
 var gPacman;
 var gIntervalGhosts;
@@ -21,12 +26,9 @@ function createPacman(board) {
 function movePacman(ev) {
     if (!gGame.isOn) return
 
-    // use getNextLocation(), nextCell
     var nextLocation = getNextLocation(ev)
     if (nextLocation === null) return;
-    // console.log('nextLocation', nextLocation)
-    var nextCell = gBoard[nextLocation.i][nextLocation.j]
-    // console.log('nextCell', nextCell)
+    var nextCell = gBoard[nextLocation.i][nextLocation.j];
     // return if cannot move
     if (nextCell === WALL) return
     // hitting a ghost?  call gameOver
@@ -42,7 +44,6 @@ function movePacman(ev) {
     }
     if (nextCell === CHEERY) {
         updateScore(10);
-        // foodOnBoard += 10;
     }
 
     if (nextCell === FOOD) {
@@ -86,15 +87,19 @@ function getNextLocation(keyboardEvent) {
     switch (keyboardEvent.code) {
         case 'ArrowUp':
             nextLocation.i--
+            PACMAN = PACMAN_UP
             break;
         case 'ArrowDown':
             nextLocation.i++
+            PACMAN = PACMAN_DOWN
             break;
         case 'ArrowLeft':
             nextLocation.j--
+            PACMAN = PACMAN_LEFT
             break;
         case 'ArrowRight':
             nextLocation.j++
+            PACMAN = PACMAN_RIGHT
             break;
         default: return null
     }

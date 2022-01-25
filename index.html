@@ -10,11 +10,14 @@
 </head>
 
 <body onload="init()" onkeyup="movePacman(event)">
-    <h1 class="victory">Victory!!!</h1>
+    <div class='modal'>
+        <h1 class="msg"></h1>
+        <button class="renew" onclick="resetGame()">Renew the Game</button>
+    </div>
     <h2>Score: <span>0</span></h2>
     <div class="board-container"></div>
     <div>
-        <button class="renew" onclick="resetGame()">Renew the Game</button>
+
     </div>
 
     <script src="js/utils.js"></script>

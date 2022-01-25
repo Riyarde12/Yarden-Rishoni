@@ -42,3 +42,12 @@ function getDefaultGameObj() {
     isOn: false
   }
 }
+
+function checkWinLose(isWin) {
+  document.querySelector('.modal').style.display = 'block';
+  document.querySelector('.renew').style.display = 'block';
+  var elH1Msg = document.querySelector('.msg');
+  var msg = (isWin) ? 'VICTORY!!!' : 'YOU LOSE!';
+  elH1Msg.innerText = msg
+
+}
